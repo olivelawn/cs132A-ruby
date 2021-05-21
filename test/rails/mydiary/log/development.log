@@ -1,0 +1,459 @@
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (20.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (3.6ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.4ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateEntries (20091112052215)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "content" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091112052215')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("entries")[0m
+
+
+Processing EntriesController#index (for 127.0.0.1 at 2009-11-11 21:36:16) [GET]
+  [4;36;1mEntry Load (0.6ms)[0m   [0;1mSELECT * FROM "entries" [0m
+Rendering template within layouts/entries
+Rendering entries/index
+Completed in 46ms (View: 40, DB: 1) | 200 OK [http://0.0.0.0/entries]
+
+
+Processing EntriesController#new (for 127.0.0.1 at 2009-11-11 21:37:01) [GET]
+Rendering template within layouts/entries
+Rendering entries/new
+Completed in 23ms (View: 16, DB: 0) | 200 OK [http://0.0.0.0/entries/new]
+
+
+Processing EntriesController#create (for 127.0.0.1 at 2009-11-11 21:37:41) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"3kTl/ubwrENHmUYQa7mXnu3eIZN5kTfQfusZlo7V+sg=", "entry"=>{"title"=>"diary entry 1", "content"=>"dear diary, ruby on rails is pretty cool."}}
+  [4;35;1mEntry Create (0.5ms)[0m   [0mINSERT INTO "entries" ("updated_at", "title", "content", "created_at") VALUES('2009-11-12 05:37:41', 'diary entry 1', 'dear diary, ruby on rails is pretty cool.', '2009-11-12 05:37:41')[0m
+Redirected to http://0.0.0.0:3000/entries/1
+Completed in 11ms (DB: 0) | 302 Found [http://0.0.0.0/entries]
+
+
+Processing EntriesController#show (for 127.0.0.1 at 2009-11-11 21:37:41) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mEntry Load (0.2ms)[0m   [0;1mSELECT * FROM "entries" WHERE ("entries"."id" = 1) [0m
+Rendering template within layouts/entries
+Rendering entries/show
+Completed in 11ms (View: 6, DB: 0) | 200 OK [http://0.0.0.0/entries/1]
+
+
+Processing EntriesController#index (for 127.0.0.1 at 2009-11-11 21:37:48) [GET]
+  [4;35;1mEntry Load (1.2ms)[0m   [0mSELECT * FROM "entries" [0m
+Rendering template within layouts/entries
+Rendering entries/index
+Completed in 20ms (View: 12, DB: 1) | 200 OK [http://0.0.0.0/entries]
+
+
+Processing EntriesController#show (for 127.0.0.1 at 2009-11-11 21:37:51) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mEntry Load (1.1ms)[0m   [0;1mSELECT * FROM "entries" WHERE ("entries"."id" = 1) [0m
+Rendering template within layouts/entries
+Rendering entries/show
+Completed in 11ms (View: 4, DB: 1) | 200 OK [http://0.0.0.0/entries/1]
+
+
+Processing EntriesController#edit (for 127.0.0.1 at 2009-11-11 21:37:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mEntry Load (0.2ms)[0m   [0mSELECT * FROM "entries" WHERE ("entries"."id" = 1) [0m
+Rendering template within layouts/entries
+Rendering entries/edit
+Completed in 18ms (View: 12, DB: 0) | 200 OK [http://0.0.0.0/entries/1/edit]
+
+
+Processing EntriesController#new (for 127.0.0.1 at 2009-11-11 21:38:01) [GET]
+Rendering template within layouts/entries
+Rendering entries/new
+Completed in 11ms (View: 5, DB: 0) | 200 OK [http://0.0.0.0/entries/new]
+
+
+Processing EntriesController#create (for 127.0.0.1 at 2009-11-11 21:38:15) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"3kTl/ubwrENHmUYQa7mXnu3eIZN5kTfQfusZlo7V+sg=", "entry"=>{"title"=>"diary entry 1", "content"=>"this is pretty neat."}}
+  [4;36;1mEntry Create (0.5ms)[0m   [0;1mINSERT INTO "entries" ("updated_at", "title", "content", "created_at") VALUES('2009-11-12 05:38:15', 'diary entry 1', 'this is pretty neat.', '2009-11-12 05:38:15')[0m
+Redirected to http://0.0.0.0:3000/entries/2
+Completed in 14ms (DB: 0) | 302 Found [http://0.0.0.0/entries]
+
+
+Processing EntriesController#show (for 127.0.0.1 at 2009-11-11 21:38:15) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mEntry Load (0.2ms)[0m   [0mSELECT * FROM "entries" WHERE ("entries"."id" = 2) [0m
+Rendering template within layouts/entries
+Rendering entries/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://0.0.0.0/entries/2]
+
+
+Processing EntriesController#index (for 127.0.0.1 at 2009-11-11 21:38:17) [GET]
+  [4;36;1mEntry Load (0.6ms)[0m   [0;1mSELECT * FROM "entries" [0m
+Rendering template within layouts/entries
+Rendering entries/index
+Completed in 16ms (View: 12, DB: 1) | 200 OK [http://0.0.0.0/entries]
+
+
+Processing EntriesController#edit (for 127.0.0.1 at 2009-11-11 21:39:18) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mEntry Load (0.3ms)[0m   [0mSELECT * FROM "entries" WHERE ("entries"."id" = 2) [0m
+Rendering template within layouts/entries
+Rendering entries/edit
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://0.0.0.0/entries/2/edit]
+
+
+Processing EntriesController#update (for 127.0.0.1 at 2009-11-11 21:39:49) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"3kTl/ubwrENHmUYQa7mXnu3eIZN5kTfQfusZlo7V+sg=", "id"=>"2", "entry"=>{"title"=>"diary entry 1", "content"=>"let's see if this triggers updated_at field."}}
+  [4;36;1mEntry Load (0.3ms)[0m   [0;1mSELECT * FROM "entries" WHERE ("entries"."id" = 2) [0m
+  [4;35;1mEntry Update (0.4ms)[0m   [0mUPDATE "entries" SET "content" = 'let''s see if this triggers updated_at field.', "updated_at" = '2009-11-12 05:39:49' WHERE "id" = 2[0m
+Redirected to http://0.0.0.0:3000/entries/2
+Completed in 17ms (DB: 1) | 302 Found [http://0.0.0.0/entries/2]
+
+
+Processing EntriesController#show (for 127.0.0.1 at 2009-11-11 21:39:49) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mEntry Load (1.1ms)[0m   [0;1mSELECT * FROM "entries" WHERE ("entries"."id" = 2) [0m
+Rendering template within layouts/entries
+Rendering entries/show
+Completed in 9ms (View: 3, DB: 1) | 200 OK [http://0.0.0.0/entries/2]
+
+
+Processing EntriesController#show (for 127.0.0.1 at 2009-11-11 21:41:06) [GET]
+  Parameters: {"id"=>"list"}
+  [4;35;1mEntry Load (0.1ms)[0m   [0mSELECT * FROM "entries" WHERE ("entries"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Entry with ID=list):
+  app/controllers/entries_controller.rb:16:in `show'
+
+Rendered rescues/_trace (70.3ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (not_found)
+
+
+Processing EntriesController#index (for 127.0.0.1 at 2009-11-11 21:41:26) [GET]
+  [4;36;1mEntry Load (0.7ms)[0m   [0;1mSELECT * FROM "entries" [0m
+Rendering template within layouts/entries
+Rendering entries/index
+Completed in 25ms (View: 20, DB: 1) | 200 OK [http://0.0.0.0/entries]
+
+
+Processing EntriesController#show (for 127.0.0.1 at 2009-11-11 21:41:56) [GET]
+  Parameters: {"id"=>"list"}
+  [4;35;1mEntry Load (0.1ms)[0m   [0mSELECT * FROM "entries" WHERE ("entries"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Entry with ID=list):
+  app/controllers/entries_controller.rb:16:in `show'
+
+Rendered rescues/_trace (91.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing EntriesController#show (for 127.0.0.1 at 2009-11-11 21:44:36) [GET]
+  Parameters: {"id"=>"index"}
+  [4;36;1mEntry Load (0.2ms)[0m   [0;1mSELECT * FROM "entries" WHERE ("entries"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Entry with ID=index):
+  app/controllers/entries_controller.rb:16:in `show'
+
+Rendered rescues/_trace (37.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing EntriesController#show (for 127.0.0.1 at 2009-11-11 21:44:48) [GET]
+  Parameters: {"id"=>"show"}
+  [4;35;1mEntry Load (0.1ms)[0m   [0mSELECT * FROM "entries" WHERE ("entries"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Entry with ID=show):
+  app/controllers/entries_controller.rb:16:in `show'
+
+Rendered rescues/_trace (84.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing EntriesController#index (for 127.0.0.1 at 2009-11-11 22:01:19) [GET]
+  [4;36;1mEntry Load (0.9ms)[0m   [0;1mSELECT * FROM "entries" [0m
+Rendering template within layouts/entries
+Rendering entries/index
+Completed in 18ms (View: 13, DB: 1) | 200 OK [http://0.0.0.0/entries/]
+
+
+Processing EntriesController#index (for 127.0.0.1 at 2009-11-11 22:01:33) [GET]
+  [4;35;1mEntry Load (0.7ms)[0m   [0mSELECT * FROM "entries" [0m
+Rendering template within layouts/entries
+Rendering entries/index
+Completed in 20ms (View: 12, DB: 1) | 200 OK [http://0.0.0.0/entries/]
+
+
+Processing EntriesController#index (for 127.0.0.1 at 2009-11-11 22:02:52) [GET]
+Completed in 3ms (View: 1, DB: 0) | 200 OK [http://0.0.0.0/entries/]
+
+
+Processing EntriesController#index (for 127.0.0.1 at 2009-11-11 22:16:09) [GET]
+  [4;36;1mEntry Load (0.7ms)[0m   [0;1mSELECT * FROM "entries" [0m
+Rendering template within layouts/entries
+Rendering entries/index
+Completed in 23ms (View: 16, DB: 1) | 200 OK [http://0.0.0.0/entries/]
+
+
+Processing EntriesController#show (for 127.0.0.1 at 2009-11-11 22:17:26) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mEntry Load (0.3ms)[0m   [0mSELECT * FROM "entries" WHERE ("entries"."id" = 1) [0m
+Rendering template within layouts/entries
+Rendering entries/show
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://0.0.0.0/entries/1]
+
+
+Processing EntriesController#show (for 127.0.0.1 at 2009-11-11 22:17:33) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mEntry Load (0.2ms)[0m   [0;1mSELECT * FROM "entries" WHERE ("entries"."id" = 2) [0m
+Rendering template within layouts/entries
+Rendering entries/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://0.0.0.0/entries/2]
+
+
+Processing EntriesController#edit (for 127.0.0.1 at 2009-11-11 22:19:59) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mEntry Load (0.3ms)[0m   [0mSELECT * FROM "entries" WHERE ("entries"."id" = 2) [0m
+Rendering template within layouts/entries
+Rendering entries/edit
+Completed in 11ms (View: 5, DB: 0) | 200 OK [http://0.0.0.0/entries/2/edit]
+
+
+Processing EntriesController#index (for 127.0.0.1 at 2009-11-11 22:28:10) [GET]
+  [4;36;1mEntry Load (0.7ms)[0m   [0;1mSELECT * FROM "entries" [0m
+Rendering template within layouts/entries
+Rendering entries/index
+Completed in 20ms (View: 15, DB: 1) | 200 OK [http://0.0.0.0/entries/]
+
+
+Processing EntriesController#show (for 127.0.0.1 at 2009-11-11 22:38:30) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mEntry Load (0.3ms)[0m   [0mSELECT * FROM "entries" WHERE ("entries"."id" = 2) [0m
+Rendering template within layouts/entries
+Rendering entries/show
+Completed in 11ms (View: 3, DB: 0) | 200 OK [http://0.0.0.0/entries/2]
+
+
+Processing EntriesController#index (for 127.0.0.1 at 2009-11-12 20:20:09) [GET]
+  [4;36;1mEntry Load (0.7ms)[0m   [0;1mSELECT * FROM "entries" [0m
+Rendering template within layouts/entries
+Rendering entries/index
+Completed in 158ms (View: 153, DB: 1) | 200 OK [http://0.0.0.0/entries/]
+
+
+Processing EntriesController#show (for 127.0.0.1 at 2009-11-12 20:24:05) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mEntry Load (0.4ms)[0m   [0;1mSELECT * FROM "entries" WHERE ("entries"."id" = 1) [0m
+Rendering template within layouts/entries
+Rendering entries/show
+Completed in 100ms (View: 94, DB: 0) | 200 OK [http://0.0.0.0/entries/1]
+
+
+Processing EntriesController#show (for 127.0.0.1 at 2009-11-12 20:24:12) [GET]
+  Parameters: {"id"=>"view_all"}
+  [4;35;1mEntry Load (0.1ms)[0m   [0mSELECT * FROM "entries" WHERE ("entries"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Entry with ID=view_all):
+  app/controllers/entries_controller.rb:21:in `show'
+
+Rendered rescues/_trace (32.0ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (not_found)
+
+
+Processing EntriesController#show (for 127.0.0.1 at 2009-11-12 20:27:13) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mEntry Load (0.3ms)[0m   [0;1mSELECT * FROM "entries" WHERE ("entries"."id" = 1) [0m
+Rendering template within layouts/entries
+Rendering entries/show
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://0.0.0.0/entries/1]
+
+
+Processing EntriesController#view_all (for 127.0.0.1 at 2009-11-12 20:31:47) [GET]
+  [4;35;1mEntry Load (1.1ms)[0m   [0mSELECT * FROM "entries" ORDER BY created_at DESC[0m
+
+ActionView::MissingTemplate (Missing template entries/view_all.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EntriesController#view_all (for 127.0.0.1 at 2009-11-12 20:36:44) [GET]
+  [4;36;1mEntry Load (1.0ms)[0m   [0;1mSELECT * FROM "entries" ORDER BY created_at DESC[0m
+Rendering template within layouts/entries
+Rendering entries/view_all
+Completed in 155ms (View: 151, DB: 1) | 200 OK [http://0.0.0.0/entries/view_all]
+
+
+Processing EntriesController#view_all (for 127.0.0.1 at 2009-11-12 20:37:18) [GET]
+  [4;35;1mEntry Load (1.1ms)[0m   [0mSELECT * FROM "entries" ORDER BY created_at DESC[0m
+Rendering template within layouts/entries
+Rendering entries/view_all
+Completed in 13ms (View: 9, DB: 1) | 200 OK [http://0.0.0.0/entries/view_all]
+
+
+Processing EntriesController#new (for 127.0.0.1 at 2009-11-12 20:37:20) [GET]
+Rendering template within layouts/entries
+Rendering entries/new
+Completed in 26ms (View: 20, DB: 0) | 200 OK [http://0.0.0.0/entries/new]
+
+
+Processing EntriesController#create (for 127.0.0.1 at 2009-11-12 20:37:32) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"cnyprpkSQHraBwct0pvc2USffGar3mvkdH4n6dbgUNs=", "entry"=>{"title"=>"entry 3", "content"=>"is this really entry 3?"}}
+  [4;36;1mEntry Create (31.2ms)[0m   [0;1mINSERT INTO "entries" ("updated_at", "title", "content", "created_at") VALUES('2009-11-13 04:37:32', 'entry 3', 'is this really entry 3?', '2009-11-13 04:37:32')[0m
+Redirected to http://0.0.0.0:3000/entries/3
+Completed in 45ms (DB: 31) | 302 Found [http://0.0.0.0/entries]
+
+
+Processing EntriesController#show (for 127.0.0.1 at 2009-11-12 20:37:32) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mEntry Load (0.2ms)[0m   [0mSELECT * FROM "entries" WHERE ("entries"."id" = 3) [0m
+Rendering template within layouts/entries
+Rendering entries/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://0.0.0.0/entries/3]
+
+
+Processing EntriesController#edit (for 127.0.0.1 at 2009-11-12 20:37:35) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mEntry Load (0.3ms)[0m   [0;1mSELECT * FROM "entries" WHERE ("entries"."id" = 3) [0m
+Rendering template within layouts/entries
+Rendering entries/edit
+Completed in 16ms (View: 11, DB: 0) | 200 OK [http://0.0.0.0/entries/3/edit]
+
+
+Processing EntriesController#show (for 127.0.0.1 at 2009-11-12 20:37:37) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mEntry Load (0.3ms)[0m   [0mSELECT * FROM "entries" WHERE ("entries"."id" = 3) [0m
+Rendering template within layouts/entries
+Rendering entries/show
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://0.0.0.0/entries/3]
+
+
+Processing EntriesController#index (for 127.0.0.1 at 2009-11-12 20:37:41) [GET]
+  [4;36;1mEntry Load (0.6ms)[0m   [0;1mSELECT * FROM "entries" [0m
+Rendering template within layouts/entries
+Rendering entries/index
+Completed in 27ms (View: 23, DB: 1) | 200 OK [http://0.0.0.0/entries/]
+
+
+Processing EntriesController#edit (for 127.0.0.1 at 2009-11-12 20:37:51) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mEntry Load (0.3ms)[0m   [0mSELECT * FROM "entries" WHERE ("entries"."id" = 2) [0m
+Rendering template within layouts/entries
+Rendering entries/edit
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://0.0.0.0/entries/2/edit]
+
+
+Processing EntriesController#update (for 127.0.0.1 at 2009-11-12 20:37:55) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"cnyprpkSQHraBwct0pvc2USffGar3mvkdH4n6dbgUNs=", "id"=>"2", "entry"=>{"title"=>"diary entry 2", "content"=>"let's see if this triggers updated_at field."}}
+  [4;36;1mEntry Load (0.3ms)[0m   [0;1mSELECT * FROM "entries" WHERE ("entries"."id" = 2) [0m
+  [4;35;1mEntry Update (0.5ms)[0m   [0mUPDATE "entries" SET "title" = 'diary entry 2', "updated_at" = '2009-11-13 04:37:55' WHERE "id" = 2[0m
+Redirected to http://0.0.0.0:3000/entries/2
+Completed in 15ms (DB: 1) | 302 Found [http://0.0.0.0/entries/2]
+
+
+Processing EntriesController#show (for 127.0.0.1 at 2009-11-12 20:37:55) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mEntry Load (0.3ms)[0m   [0;1mSELECT * FROM "entries" WHERE ("entries"."id" = 2) [0m
+Rendering template within layouts/entries
+Rendering entries/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://0.0.0.0/entries/2]
+
+
+Processing EntriesController#edit (for 127.0.0.1 at 2009-11-12 20:37:57) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mEntry Load (0.3ms)[0m   [0mSELECT * FROM "entries" WHERE ("entries"."id" = 2) [0m
+Rendering template within layouts/entries
+Rendering entries/edit
+Completed in 16ms (View: 7, DB: 0) | 200 OK [http://0.0.0.0/entries/2/edit]
+
+
+Processing EntriesController#update (for 127.0.0.1 at 2009-11-12 20:37:59) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"cnyprpkSQHraBwct0pvc2USffGar3mvkdH4n6dbgUNs=", "id"=>"2", "entry"=>{"title"=>"diary entry 2", "content"=>"let's see if this triggers updated_at field."}}
+  [4;36;1mEntry Load (0.2ms)[0m   [0;1mSELECT * FROM "entries" WHERE ("entries"."id" = 2) [0m
+Redirected to http://0.0.0.0:3000/entries/2
+Completed in 73ms (DB: 0) | 302 Found [http://0.0.0.0/entries/2]
+
+
+Processing EntriesController#show (for 127.0.0.1 at 2009-11-12 20:37:59) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mEntry Load (0.2ms)[0m   [0mSELECT * FROM "entries" WHERE ("entries"."id" = 2) [0m
+Rendering template within layouts/entries
+Rendering entries/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://0.0.0.0/entries/2]
+
+
+Processing EntriesController#index (for 127.0.0.1 at 2009-11-12 20:38:02) [GET]
+  [4;36;1mEntry Load (0.7ms)[0m   [0;1mSELECT * FROM "entries" [0m
+Rendering template within layouts/entries
+Rendering entries/index
+Completed in 18ms (View: 14, DB: 1) | 200 OK [http://0.0.0.0/entries]
+
+
+Processing EntriesController#view_all (for 127.0.0.1 at 2009-11-12 20:38:27) [GET]
+  [4;35;1mEntry Load (4.3ms)[0m   [0mSELECT * FROM "entries" ORDER BY created_at DESC[0m
+Rendering template within layouts/entries
+Rendering entries/view_all
+Completed in 28ms (View: 10, DB: 4) | 200 OK [http://0.0.0.0/entries/view_all]
+
+
+Processing EntriesController#view_all (for 127.0.0.1 at 2009-11-12 21:01:30) [GET]
+  [4;36;1mEntry Load (1.0ms)[0m   [0;1mSELECT * FROM "entries" ORDER BY created_at DESC[0m
+Rendering template within layouts/entries
+Rendering entries/view_all
+Completed in 11ms (View: 7, DB: 1) | 200 OK [http://0.0.0.0/entries/view_all]
+
+
+Processing EntriesController#view_all (for 127.0.0.1 at 2009-11-12 21:01:32) [GET]
+  [4;35;1mEntry Load (1.1ms)[0m   [0mSELECT * FROM "entries" ORDER BY created_at DESC[0m
+Rendering template within layouts/entries
+Rendering entries/view_all
+Completed in 12ms (View: 6, DB: 1) | 200 OK [http://0.0.0.0/entries/view_all]
+
+
+Processing EntriesController#view_all (for 127.0.0.1 at 2009-11-12 21:01:40) [GET]
+  [4;36;1mEntry Load (1.1ms)[0m   [0;1mSELECT * FROM "entries" ORDER BY created_at DESC[0m
+Rendering template within layouts/entries
+Rendering entries/view_all
+Completed in 8ms (View: 4, DB: 1) | 200 OK [http://0.0.0.0/entries/view_all]
+
+
+Processing EntriesController#new (for 127.0.0.1 at 2009-11-12 21:01:42) [GET]
+Rendering template within layouts/entries
+Rendering entries/new
+Completed in 9ms (View: 4, DB: 0) | 200 OK [http://0.0.0.0/entries/new]
+
+
+Processing EntriesController#create (for 127.0.0.1 at 2009-11-12 21:02:00) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"cnyprpkSQHraBwct0pvc2USffGar3mvkdH4n6dbgUNs=", "entry"=>{"title"=>"this is entry #4", "content"=>"i'm hopefully counting sessions!"}}
+  [4;35;1mEntry Create (13.2ms)[0m   [0mINSERT INTO "entries" ("updated_at", "title", "content", "created_at") VALUES('2009-11-13 05:02:00', 'this is entry #4', 'i''m hopefully counting sessions!', '2009-11-13 05:02:00')[0m
+Redirected to http://0.0.0.0:3000/entries/4
+Completed in 24ms (DB: 13) | 302 Found [http://0.0.0.0/entries]
+
+
+Processing EntriesController#show (for 127.0.0.1 at 2009-11-12 21:02:00) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mEntry Load (0.2ms)[0m   [0;1mSELECT * FROM "entries" WHERE ("entries"."id" = 4) [0m
+Rendering template within layouts/entries
+Rendering entries/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://0.0.0.0/entries/4]
+
+
+Processing EntriesController#view_all (for 127.0.0.1 at 2009-11-12 21:02:07) [GET]
+  [4;35;1mEntry Load (1.1ms)[0m   [0mSELECT * FROM "entries" ORDER BY created_at DESC[0m
+Rendering template within layouts/entries
+Rendering entries/view_all
+Completed in 8ms (View: 3, DB: 1) | 200 OK [http://0.0.0.0/entries/view_all]

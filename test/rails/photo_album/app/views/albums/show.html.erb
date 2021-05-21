@@ -1,0 +1,11 @@
+<h2><%= @album.title.titleize %> </h2>
+<div id="photos">
+
+  <%= render :partial => "images" %>
+
+  </div>
+
+<div style="clear:both">
+<%= link_to 'Back', albums_path %>
+</div>
+

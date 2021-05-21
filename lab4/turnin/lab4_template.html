@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>Lab 4 by Parker Johnson cs132A</title>
+<body>
+<table border="1" cellspacing="2">
+   <tr> <% @column_header.each do |field| %> 
+   <th><a href=?sort_by=<%= field %>><%= humanize(field) %></th> <% end %>
+<%
+@sortedarrayofstudents.each do |student|
+%>
+   <tr>
+       <td class=""> <%= student.number %> </td>
+       <td class=""> <%= student.user_name %> </td>
+       <td class=""> <%= student.password %> </td>
+       <td class=""> <%= student.uid %> </td>
+       <td class=""> <%= student.gid %> </td>
+       <td class=""> <%= student.gcos_field %> </td>
+       <td class=""> <%= student.directory %> </td>
+       <td class=""> <%= student.shell %> </td>
+       <td class=""> <%= student.first_name %> </td>
+       <td class=""> <%= student.last_name %> </td>
+   </tr>
+<% end %>
+</table>
+</body>
+</html>

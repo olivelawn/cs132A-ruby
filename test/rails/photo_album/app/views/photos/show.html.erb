@@ -1,0 +1,30 @@
+
+  <div class="single-photo">
+    <strong> <%= @photo.image_path.gsub('_',' ').titleize %> </strong>
+    <br />
+    <div>
+    <a href="/photos/<%= @prev_photo_id %>"><==</a> |
+    <a href="/photos/<%= @next_photo_id %>">==></a><br />
+    </div>
+
+<a href="/albums/<%= @photo.album_id %>">
+    <img src="/images/<%=h @photo.image_path %>/<%=h @photo.image_name %>" /><br /> 
+</a>
+
+<br />
+<div class="description">
+  <b>Description:</b>
+  <%=h @photo.description %>
+  <br />
+
+  <b>Image name:</b>
+  <%=h @photo.image_name %>
+  <br />
+
+  <b>Photographer:</b>
+  <%=h @photo.photographer %>
+  <br />
+
+</div>
+</div>
+

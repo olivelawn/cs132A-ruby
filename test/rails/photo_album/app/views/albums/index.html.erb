@@ -1,0 +1,15 @@
+<div class="albums">
+  <h1>Albums</h1>
+  <div style="clear:both"><br /></div>
+<table cellpadding="4" cellspacing="0">
+  <tr>
+
+<% @albums.each do |album| %>
+   <td style="vertical-align:middle;text-align:center;">
+     <a href="/albums/<%= album.id %>"><img src="/images/<%= album.photos.first.image_path %>/thumbs/<%= album.photos.first.image_name %>"i height="110" /></a><br /><a href="/albums/<%= album.id %>"><%= album.title.titleize %></a></td>
+<% end %>
+  </tr>
+</table>
+</div>
+<br />
+

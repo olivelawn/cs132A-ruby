@@ -1,0 +1,6 @@
+<% @album.photos.each do |foto| %>
+<div class="thumb">
+  <a href="/photos/<%=h foto.id %>"><img src="/images/<%=h foto.image_path %>/thumbs/<%=h foto.image_name %>" height="70" alt="" title="<%= @album.title.titleize %>: <%= foto.image_name %>"/></a>
+</div>
+
+<% end %>
